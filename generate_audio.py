@@ -25,7 +25,7 @@ def read_yaml(fp):
         return yaml.load(file, Loader=yaml.Loader)
 
 def generate(args, g_ema, device, mean_latent):
-    epoch = args.ckpt.split('/')[2][:-3]
+    epoch = args.ckpt.split('/')[-1][:-3]
 
     os.makedirs(f'{args.store_path}/{epoch}', exist_ok=True)
     os.makedirs(f'{args.store_path}/{epoch}/mel_80_320', exist_ok=True)
@@ -214,6 +214,6 @@ if __name__ == "__main__":
     generate(args, g_ema, device, mean_latent)
 
     # Style mixing
-    step = 0
-    for j in range(20):
-        img = style_mixing(args,g_ema, step, mean_latent, args.n_col, args.n_row, device, j)
+    #step = 0
+    #for j in range(20):
+    #    img = style_mixing(args,g_ema, step, mean_latent, args.n_col, args.n_row, device, j)
