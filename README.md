@@ -31,7 +31,7 @@ $ python make_dataset.py
 $ python compute_mean_std.py 
 ```
 ## Vocoder
-We use [MelGAN][melgan] as the vocoder. We trained the vocoder with looperman dataset and use the vocoder in both scenario.
+We use [MelGAN][melgan] as the vocoder. We trained the vocoder with looperman dataset and use the vocoder in generating freesound and looperman models.
 The trained vocoder is in [melgan](./melgan) directory.
 ## Train the Model
 ``` bash
