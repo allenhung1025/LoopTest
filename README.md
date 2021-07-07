@@ -37,7 +37,7 @@ The trained vocoder is in [melgan](./melgan) directory.
 ``` bash
 CUDA_VISIBLE_DEVICES=2 python train_drum.py \
     --size 64 --batch 8 --sample_dir [sample_dir] \
-    --checkpoint_dir [checkpoint_dir]\
+    --checkpoint_dir [checkpoint_dir] \
     [mel-spectrogram dataset from the proprocessing]
 ```
 * checkpoint_dir stores model in the designated directory.
