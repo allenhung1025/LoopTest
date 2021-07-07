@@ -22,7 +22,7 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
 * [Freesound pretrained model link](https://drive.google.com/file/d/197DMCOASEMFBVi8GMahHfRwgJ0bhcUND/view?usp=sharing)
 
 ## Preprocess the Loop Dataset
-In the `preprocess` directory and modify some settings(e.g. data path) in the codes and run them with the following orders
+In the [preprocess](./preprocess) directory and modify some settings(e.g. data path) in the codes and run them with the following orders
 ``` bash
 $ python trim_2_seconds.py
 $ python extract_mel.py
