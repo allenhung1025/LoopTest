@@ -43,5 +43,6 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
 ## References
 * The code comes heavily from [StyleGAN2 from rosinality][stylegan2] 
 * [unagan from ciaua][unagan].
+
 [stylegan2]: https://github.com/rosinality/stylegan2-pytorch
 [unagan]: https://github.com/ciaua/unagan
