@@ -43,6 +43,7 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
 * checkpoint_dir stores model in the designated directory.
 * sample_dir stores mel-spectrogram generated from the model.
 * You should give the data directory in the end.
+* There is an example training [script](./train.sh)
 
 ## References
 The code comes heavily from the code below
