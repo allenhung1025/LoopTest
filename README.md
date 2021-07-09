@@ -25,9 +25,9 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
 ## Preprocess the Loop Dataset
 In the [preprocess](./preprocess) directory and modify some settings(e.g. data path) in the codes and run them with the following orders
 ``` bash
-$ python trim_2_seconds.py
-$ python extract_mel.py
-$ python make_dataset.py
+$ python trim_2_seconds.py # Cut 4-bar loop into the single bar and stretch them to 2 second.
+$ python extract_mel.py # Extract mel-spectrogram from 2-second audio.
+$ python make_dataset.py 
 $ python compute_mean_std.py 
 ```
 ## Vocoder
