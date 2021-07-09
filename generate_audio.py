@@ -190,6 +190,7 @@ if __name__ == "__main__":
         default=2,
         help="channel multiplier of the generator. config-f = 2, else = 1",
     )
+    parser.add_argument("--style_mixing", action = "store_true")
     parser.add_argument('--n_row', type=int, default=3, help='number of rows of sample matrix')
     parser.add_argument('--n_col', type=int, default=5, help='number of columns of sample matrix')
     args = parser.parse_args()
@@ -213,7 +214,8 @@ if __name__ == "__main__":
     # Generate audio
     generate(args, g_ema, device, mean_latent)
 
-    # Style mixing
-    #step = 0
-    #for j in range(20):
-    #    img = style_mixing(args,g_ema, step, mean_latent, args.n_col, args.n_row, device, j)
+    #Style mixing
+    if args.style_mixing == True:
+        step = 0
+        for j in range(20):
+            img = style_mixing(args,g_ema, step, mean_latent, args.n_col, args.n_row, device, j)

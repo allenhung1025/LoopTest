@@ -3,6 +3,8 @@ Open source of ISMIR-21 submission, “A Benchmarking Initiative for Audio-domai
 The demo website is in the [link](https://loopgen.github.io/).
 ## Quick Start
 * Generate loops from looperman pretrained model
+* If you want to "style-mix" the loop, you can add the argument `--style_mixing`.
+* There are two example scripts([freesound](./generate_freesound.sh), [looperman](./generate_looperman.sh)) in the repo. 
 ``` bash
 $ gdown --id 1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K -O looperman_checkpoint.pt
 $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
@@ -44,6 +46,8 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
 * sample_dir stores mel-spectrogram generated from the model.
 * You should give the data directory in the end.
 * There is an example training [script](./train.sh)
+
+## Evaluation
 
 ## References
 The code comes heavily from the code below
