@@ -3,5 +3,6 @@ generated_freesound_one_bar
 generated_interpolation_one_bar_2
 pretrained_model
 __pycache__/
-evaluation/__pycache__
-evaluation/looper_2000/*
+evaluation/NDB_JS/__pycache__
+evaluation/NDB_JS/looperman_2000.txt
+evaluation/NDB_JS/looper_2000/
