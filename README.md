@@ -9,7 +9,7 @@ The demo website is in the [link](https://loopgen.github.io/).
 $ gdown --id 1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K -O looperman_checkpoint.pt
 $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
     --ckpt "looperman_checkpoint.pt" \
-    --pics 100 --data_path "./data/looperman" \
+    --pics 2000 --data_path "./data/looperman" \
     --store_path "./generated_looperman_one_bar"
 ``` 
 * Generate loops from freesound pretrained model
@@ -17,7 +17,7 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
 $ gdown --id 197DMCOASEMFBVi8GMahHfRwgJ0bhcUND -O freesound_checkpoint.pt 
 $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
     --ckpt "freesound_checkpoint.pt" \
-    --pics 100 --data_path "./data/freesound" \
+    --pics 2000 --data_path "./data/freesound" \
     --store_path "./generated_freesound_one_bar"
 ``` 
 ## Pretrained Checkpoint
@@ -48,7 +48,16 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
 * There is an example training [script](./train.sh)
 
 ## Evaluation
-
+* NDB_JS
+* 2000 looperman melspectrogram [link](https://drive.google.com/file/d/1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh/view?usp=sharing)
+``` bash
+$ cd evaluation/NDB_JS
+$ gdwon --id 1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh
+$ unzip looper_2000.zip # contain 2000 looperman mel-sepctrogram
+$ bash compute_ndb_js.sh ## you have to modify this script to evaluation your generated melspectrograms
+```
+* IS
+* FAD
 ## References
 The code comes heavily from the code below
 * [StyleGAN2 from rosinality][stylegan2]
