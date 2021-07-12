@@ -1,6 +1,7 @@
 # loop-generation
 [![GitHub](https://img.shields.io/github/license/allenhung1025/loop-generation?label=license)](./LICENSE.md)
 ![GitHub issues](https://img.shields.io/github/issues/allenhung1025/loop-generation)
+![GitHub Repo stars](https://img.shields.io/github/stars/allenhung1025/loop-generation)
 * Open source of ISMIR-21 publication, **“A Benchmarking Initiative for Audio-domain Music Generation using the FreeSound Loop Dataset”** co-authored with [Paul Chen](https://paulyuchen.com/), [Arthur Yeh](http://yentung.com/) and my supervisor [Yi-Hsuan Yang](http://mac.citi.sinica.edu.tw/~yang/). 
 * The demo website is in the [link](https://loopgen.github.io/).
 * We not only provided pretrained model to generate loops on your own but also provided scripts for you to evaluate the generated loops.
