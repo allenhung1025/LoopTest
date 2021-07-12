@@ -1,5 +1,5 @@
 # loop-generation
-Open source of ISMIR-21 submission, “A Benchmarking Initiative for Audio-domain Music Generation using the FreeSound Loop Dataset”.
+Open source of ISMIR-21 publication, “A Benchmarking Initiative for Audio-domain Music Generation using the FreeSound Loop Dataset” co-authored with [Paul Chen](https://paulyuchen.com/) and [Arthur Yeh](http://yentung.com/)
 The demo website is in the [link](https://loopgen.github.io/).
 ## Quick Start
 * Generate loops from looperman pretrained model
