@@ -62,14 +62,20 @@ $ unzip looper_2000.zip # contain 2000 looperman mel-sepctrogram
 $ bash compute_ndb_js.sh ## you have to modify this script to evaluation your generated melspectrograms
 ```
 * IS
+* Short-Chunk CNN [checkpoint](./evaluation/IS/best_model.pkl)
+``` bash
+$ cd evaluation/IS
+$ bash compute compute_is_score.sh ## you have to modify this script to evaluation your generated melspectrograms
+```
 * FAD
 ## References
 The code comes heavily from the code below
 * [StyleGAN2 from rosinality][stylegan2]
 * [Official MelGAN repository][melgan] 
 * [UNAGAN from ciaua][unagan].
+* [Short Chunk CNN][cnn]
 
-
+[cnn]: https://github.com/minzwon/sota-music-tagging-models
 [stylegan2]: https://github.com/rosinality/stylegan2-pytorch
 [unagan]: https://github.com/ciaua/unagan
 [melgan]: https://github.com/descriptinc/melgan-neurips
