@@ -36,6 +36,7 @@ $ python extract_mel.py # Extract mel-spectrogram from 2-second audio.
 $ python make_dataset.py 
 $ python compute_mean_std.py 
 ```
+
 ## Vocoder
 We use [MelGAN][melgan] as the vocoder. We trained the vocoder with looperman dataset and use the vocoder in generating freesound and looperman models.
 The trained vocoder is in [melgan](./melgan) directory.
