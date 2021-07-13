@@ -5,6 +5,10 @@
 * Open source of ISMIR-21 publication, **“A Benchmarking Initiative for Audio-domain Music Generation using the FreeSound Loop Dataset”** co-authored with [Paul Chen](https://paulyuchen.com/), [Arthur Yeh](http://yentung.com/) and my supervisor [Yi-Hsuan Yang](http://mac.citi.sinica.edu.tw/~yang/). 
 * The demo website is in the [link](https://loopgen.github.io/).
 * We not only provided pretrained model to generate loops on your own but also provided scripts for you to evaluate the generated loops.
+## Environment
+```
+$ conda env create -f environment.yml 
+```
 ## Quick Start
 * Generate loops from looperman pretrained model
 * If you want to "style-mix" the loop, you can add the argument `--style_mixing`.
