@@ -95,7 +95,7 @@ The code comes heavily from the code below
 If you find this repo useful, please cite with the following information.
 ```
 @inproceedings{ allenloopgen, 
-	title={A BENCHMARKING INITIATIVE FOR AUDIO-DOMAIN MUSICGENERATION USING THE FREESOUND LOOP DATASET),
+	title={A Benchmarking Initiative for Audio-domain Music Generation using the FreeSound Loop Dataset},
 	author={Tun-Min Hung, Bo-Yu Chen, Yen-Tung Yeh, and Yi-Hsuan Yang},
 	booktitle = {Proc. Int. Society for Music Information Retrieval Conf.},
 	year={2021},
