@@ -71,11 +71,11 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
 ### FAD
 * FAD looperman ground truth [link](./evaluation/FAD/looperman_2000.stats), follow the official [doc](fad) to download the code and the evaluation.
 
-``` bash
-$ ls --color=never test_audio/background/*  > test.csv
-$ python -m frechet_audio_distance.create_embeddings_main --input_files test.csv --stats test.stats
-$ python -m frechet_audio_distance.compute_fad --background_stats ./ --test_stats test.stats
-```
+    ``` bash
+    $ ls --color=never test_audio/background/*  > test.csv
+    $ python -m frechet_audio_distance.create_embeddings_main --input_files test.csv --stats test.stats
+    $ python -m frechet_audio_distance.compute_fad --background_stats ./ --test_stats test.stats
+    ```
 
 ## References
 The code comes heavily from the code below
@@ -90,3 +90,14 @@ The code comes heavily from the code below
 [stylegan2]: https://github.com/rosinality/stylegan2-pytorch
 [unagan]: https://github.com/ciaua/unagan
 [melgan]: https://github.com/descriptinc/melgan-neurips
+
+## Citation
+If you find this repo useful, please cite with the following information.
+```
+@inproceedings{ allenloopgen, 
+	title={A BENCHMARKING INITIATIVE FOR AUDIO-DOMAIN MUSICGENERATION USING THE FREESOUND LOOP DATASET),
+	author={Tun-Min Hung, Bo-Yu Chen, Yen-Tung Yeh, and Yi-Hsuan Yang},
+	booktitle = {Proc. Int. Society for Music Information Retrieval Conf.},
+	year={2021},
+}
+```
