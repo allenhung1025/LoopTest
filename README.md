@@ -74,7 +74,7 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
     ``` bash
     $ ls --color=never test_audio/background/*  > test.csv
     $ python -m frechet_audio_distance.create_embeddings_main --input_files test.csv --stats test.stats
-    $ python -m frechet_audio_distance.compute_fad --background_stats ./ --test_stats test.stats
+    $ python -m frechet_audio_distance.compute_fad --background_stats ./looperman_2000.stats --test_stats test.stats
     ```
 
 ## References
