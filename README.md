@@ -40,6 +40,7 @@ $ python compute_mean_std.py
 ## Vocoder
 We use [MelGAN][melgan] as the vocoder. We trained the vocoder with looperman dataset and use the vocoder in generating freesound and looperman models.
 The trained vocoder is in [melgan](./melgan) directory.
+
 ## Train the Model
 ``` bash
 CUDA_VISIBLE_DEVICES=2 python train_drum.py \
@@ -67,14 +68,24 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
     $ cd evaluation/IS
     $ bash compute compute_is_score.sh ## you have to modify this script to evaluation your generated melspectrograms
     ```
-* FAD
+### FAD
+* FAD looperman ground truth [link](./evaluation/FAD/looperman_2000.stats), follow the official [doc](fad) to download the code and the evaluation.
+
+``` bash
+$ ls --color=never test_audio/background/*  > test.csv
+$ python -m frechet_audio_distance.create_embeddings_main --input_files test.csv --stats test.stats
+$ python -m frechet_audio_distance.compute_fad --background_stats ./ --test_stats test.stats
+```
+
 ## References
 The code comes heavily from the code below
 * [StyleGAN2 from rosinality][stylegan2]
-* [Official MelGAN repository][melgan] 
-* [UNAGAN from ciaua][unagan].
-* [Short Chunk CNN][cnn]
+* [Official MelGAN repo][melgan] 
+* [Official UNAGAN repo from ciaua][unagan].
+* [Official Short Chunk CNN repo][cnn]
+* [FAD official document][fad]
 
+[fad]: https://github.com/google-research/google-research/tree/master/frechet_audio_distance
 [cnn]: https://github.com/minzwon/sota-music-tagging-models
 [stylegan2]: https://github.com/rosinality/stylegan2-pytorch
 [unagan]: https://github.com/ciaua/unagan
