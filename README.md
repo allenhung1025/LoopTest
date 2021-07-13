@@ -54,7 +54,7 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
 
 ## Evaluation
 ### NDB_JS
-    * 2000 looperman melspectrogram [link](https://drive.google.com/file/d/1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh/view?usp=sharing)
+* 2000 looperman melspectrogram [link](https://drive.google.com/file/d/1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh/view?usp=sharing)
     ``` bash
     $ cd evaluation/NDB_JS
     $ gdwon --id 1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh
@@ -62,7 +62,7 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
     $ bash compute_ndb_js.sh ## you have to modify this script to evaluation your generated melspectrograms
     ```
 ### IS
-    * Short-Chunk CNN [checkpoint](./evaluation/IS/best_model.ckpt)
+* Short-Chunk CNN [checkpoint](./evaluation/IS/best_model.ckpt)
     ``` bash
     $ cd evaluation/IS
     $ bash compute compute_is_score.sh ## you have to modify this script to evaluation your generated melspectrograms
