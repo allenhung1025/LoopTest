@@ -60,13 +60,13 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
     $ gdown --id 1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh
     $ unzip looper_2000.zip # contain 2000 looperman mel-sepctrogram
     $ rm looper_2000/.zip
-    $ bash compute_ndb_js.sh ## you have to modify this script to evaluation your generated melspectrograms
+    $ bash compute_ndb_js.sh 
     ```
 #### IS
 * Short-Chunk CNN [checkpoint](./evaluation/IS/best_model.ckpt)
     ``` bash
     $ cd evaluation/IS
-    $ bash compute compute_is_score.sh ## you have to modify this script to evaluation your generated melspectrograms
+    $ bash compute compute_is_score.sh 
     ```
 #### FAD
 * FAD looperman ground truth [link](./evaluation/FAD/looperman_2000.stats), follow the official [doc](fad) to download the code and the evaluation.
