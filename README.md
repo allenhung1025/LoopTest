@@ -29,6 +29,10 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
     --pics 2000 --data_path "./data/freesound" \
     --store_path "./generated_freesound_one_bar"
 ``` 
+## Pretrained Checkpoint
+* [Looperman pretrained model link](https://drive.google.com/file/d/1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K/view?usp=sharing) 
+* [Freesound pretrained model link](https://drive.google.com/file/d/197DMCOASEMFBVi8GMahHfRwgJ0bhcUND/view?usp=sharing)
+
 ## Benchmarking Freesound Loop Dataset
 ### Download dataset
 ### Training
@@ -65,9 +69,6 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
     $ python -m frechet_audio_distance.compute_fad --background_stats ./looperman_2000.stats --test_stats test.stats
     ```
 
-## Pretrained Checkpoint
-* [Looperman pretrained model link](https://drive.google.com/file/d/1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K/view?usp=sharing) 
-* [Freesound pretrained model link](https://drive.google.com/file/d/197DMCOASEMFBVi8GMahHfRwgJ0bhcUND/view?usp=sharing)
 
 
 ## Train the model with your loop dataset
