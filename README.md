@@ -46,6 +46,12 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
 ```
 
 ### Generate audio
+```bash
+$ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
+    --ckpt [freesound checkpoint] \
+    --pics 2000 --data_path "./data/freesound" \
+    --store_path "./generated_freesound_one_bar"
+```
 ### Evaluation
 #### NDB_JS
 * 2000 looperman melspectrogram [link](https://drive.google.com/file/d/1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh/view?usp=sharing)
