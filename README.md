@@ -57,8 +57,9 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
 * 2000 looperman melspectrogram [link](https://drive.google.com/file/d/1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh/view?usp=sharing)
     ``` bash
     $ cd evaluation/NDB_JS
-    $ gdwon --id 1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh
+    $ gdown --id 1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh
     $ unzip looper_2000.zip # contain 2000 looperman mel-sepctrogram
+    $ rm looper_2000/.zip
     $ bash compute_ndb_js.sh ## you have to modify this script to evaluation your generated melspectrograms
     ```
 #### IS
