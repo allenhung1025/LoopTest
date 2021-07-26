@@ -72,9 +72,9 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
 * FAD looperman ground truth [link](./evaluation/FAD/looperman_2000.stats), follow the official [doc](fad) to download the code and the evaluation.
 
     ``` bash
-    $ ls --color=never test_audio/background/*  > test.csv
-    $ python -m frechet_audio_distance.create_embeddings_main --input_files test.csv --stats test.stats
-    $ python -m frechet_audio_distance.compute_fad --background_stats ./looperman_2000.stats --test_stats test.stats
+    $ ls --color=never generated_freesound_one_bar/*.wav > freesound.csv
+    $ python -m frechet_audio_distance.create_embeddings_main --input_files freesound.csv --stats freesound.stats
+    $ python -m frechet_audio_distance.compute_fad --background_stats ./looperman_2000.stats --test_stats freesound.stats
     ```
 
 
