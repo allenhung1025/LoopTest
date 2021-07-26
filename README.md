@@ -42,6 +42,29 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
 
 ### Generate audio
 ### Evaluation
+#### NDB_JS
+* 2000 looperman melspectrogram [link](https://drive.google.com/file/d/1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh/view?usp=sharing)
+    ``` bash
+    $ cd evaluation/NDB_JS
+    $ gdwon --id 1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh
+    $ unzip looper_2000.zip # contain 2000 looperman mel-sepctrogram
+    $ bash compute_ndb_js.sh ## you have to modify this script to evaluation your generated melspectrograms
+    ```
+#### IS
+* Short-Chunk CNN [checkpoint](./evaluation/IS/best_model.ckpt)
+    ``` bash
+    $ cd evaluation/IS
+    $ bash compute compute_is_score.sh ## you have to modify this script to evaluation your generated melspectrograms
+    ```
+#### FAD
+* FAD looperman ground truth [link](./evaluation/FAD/looperman_2000.stats), follow the official [doc](fad) to download the code and the evaluation.
+
+    ``` bash
+    $ ls --color=never test_audio/background/*  > test.csv
+    $ python -m frechet_audio_distance.create_embeddings_main --input_files test.csv --stats test.stats
+    $ python -m frechet_audio_distance.compute_fad --background_stats ./looperman_2000.stats --test_stats test.stats
+    ```
+
 ## Pretrained Checkpoint
 * [Looperman pretrained model link](https://drive.google.com/file/d/1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K/view?usp=sharing) 
 * [Freesound pretrained model link](https://drive.google.com/file/d/197DMCOASEMFBVi8GMahHfRwgJ0bhcUND/view?usp=sharing)
@@ -72,28 +95,6 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
 * There is an example training [script](./train.sh)
 
 ## Evaluation
-### NDB_JS
-* 2000 looperman melspectrogram [link](https://drive.google.com/file/d/1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh/view?usp=sharing)
-    ``` bash
-    $ cd evaluation/NDB_JS
-    $ gdwon --id 1aFGPYlkkAysVBWp9VacHVk2tf-b4rLIh
-    $ unzip looper_2000.zip # contain 2000 looperman mel-sepctrogram
-    $ bash compute_ndb_js.sh ## you have to modify this script to evaluation your generated melspectrograms
-    ```
-### IS
-* Short-Chunk CNN [checkpoint](./evaluation/IS/best_model.ckpt)
-    ``` bash
-    $ cd evaluation/IS
-    $ bash compute compute_is_score.sh ## you have to modify this script to evaluation your generated melspectrograms
-    ```
-### FAD
-* FAD looperman ground truth [link](./evaluation/FAD/looperman_2000.stats), follow the official [doc](fad) to download the code and the evaluation.
-
-    ``` bash
-    $ ls --color=never test_audio/background/*  > test.csv
-    $ python -m frechet_audio_distance.create_embeddings_main --input_files test.csv --stats test.stats
-    $ python -m frechet_audio_distance.compute_fad --background_stats ./looperman_2000.stats --test_stats test.stats
-    ```
 
 ## References
 The code comes heavily from the code below
