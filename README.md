@@ -69,7 +69,9 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
 * [Looperman pretrained model link](https://drive.google.com/file/d/1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K/view?usp=sharing) 
 * [Freesound pretrained model link](https://drive.google.com/file/d/197DMCOASEMFBVi8GMahHfRwgJ0bhcUND/view?usp=sharing)
 
-## Preprocess the Loop Dataset
+
+## Train the model with your loop dataset
+### Preprocess the Loop Dataset
 In the [preprocess](./preprocess) directory and modify some settings (e.g. data path) in the codes and run them with the following orders
 ``` bash
 $ python trim_2_seconds.py # Cut loop into the single bar and stretch them to 2 second.
@@ -78,11 +80,7 @@ $ python make_dataset.py
 $ python compute_mean_std.py 
 ```
 
-## Vocoder
-We use [MelGAN][melgan] as the vocoder. We trained the vocoder with looperman dataset and use the vocoder in generating freesound and looperman models.
-The trained vocoder is in [melgan](./melgan) directory.
-
-## Train the Model
+### Train the Model
 ``` bash
 CUDA_VISIBLE_DEVICES=2 python train_drum.py \
     --size 64 --batch 8 --sample_dir [sample_dir] \
@@ -94,7 +92,9 @@ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
 * You should give the data directory in the end.
 * There is an example training [script](./train.sh)
 
-## Evaluation
+## Vocoder
+We use [MelGAN][melgan] as the vocoder. We trained the vocoder with looperman dataset and use the vocoder in generating freesound and looperman models.
+The trained vocoder is in [melgan](./melgan) directory.
 
 ## References
 The code comes heavily from the code below
