@@ -29,6 +29,19 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
     --pics 2000 --data_path "./data/freesound" \
     --store_path "./generated_freesound_one_bar"
 ``` 
+## Benchmarking Freesound Loop Dataset
+### Download dataset
+### Training
+
+``` bash
+CUDA_VISIBLE_DEVICES=2 python train_drum.py \
+    --size 64 --batch 8 --sample_dir [sample_dir] \
+    --checkpoint_dir [checkpoint_dir] \
+    [mel-spectrogram dataset from the proprocessing]
+```
+
+### Generate audio
+### Evaluation
 ## Pretrained Checkpoint
 * [Looperman pretrained model link](https://drive.google.com/file/d/1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K/view?usp=sharing) 
 * [Freesound pretrained model link](https://drive.google.com/file/d/197DMCOASEMFBVi8GMahHfRwgJ0bhcUND/view?usp=sharing)
