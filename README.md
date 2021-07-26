@@ -30,8 +30,9 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
     --store_path "./generated_freesound_one_bar"
 ``` 
 ## Pretrained Checkpoint
-* [Looperman pretrained model link](https://drive.google.com/file/d/1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K/view?usp=sharing) 
-* [Freesound pretrained model link](https://drive.google.com/file/d/197DMCOASEMFBVi8GMahHfRwgJ0bhcUND/view?usp=sharing)
+* [Looperman pretrained one-bar model](https://drive.google.com/file/d/1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K/view?usp=sharing) 
+* [Looperman pretrained four-bar model]()
+* [Freesound pretrained one-bar model](https://drive.google.com/file/d/197DMCOASEMFBVi8GMahHfRwgJ0bhcUND/view?usp=sharing)
 
 ## Benchmarking Freesound Loop Dataset
 ### Download dataset
