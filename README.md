@@ -1,4 +1,4 @@
-# loop-generation
+# LoopTest 
 [![GitHub](https://img.shields.io/github/license/allenhung1025/loop-generation?label=license)](./LICENSE.md)
 ![GitHub issues](https://img.shields.io/github/issues/allenhung1025/loop-generation)
 ![GitHub Repo stars](https://img.shields.io/github/stars/allenhung1025/loop-generation)
