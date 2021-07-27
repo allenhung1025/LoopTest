@@ -31,15 +31,21 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
 ``` 
 ## Pretrained Checkpoint
 * [Looperman pretrained one-bar model](https://drive.google.com/file/d/1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K/view?usp=sharing) 
-* [Looperman pretrained four-bar model]()
+* [Looperman pretrained four-bar model](https://drive.google.com/file/d/19rk3vx7XM4dultTF1tN4srCpdya7uxBV/view?usp=sharing)
 * [Freesound pretrained one-bar model](https://drive.google.com/file/d/197DMCOASEMFBVi8GMahHfRwgJ0bhcUND/view?usp=sharing)
 
 ## Benchmarking Freesound Loop Dataset
 ### Download dataset
+``` bash
+
+$ gdown --id 1fQfSZgD9uWbCdID4SzVqNGhsYNXOAbK5
+$ unzip freesound_mel_80_320.zip
+
+```
 ### Training
 
 ``` bash
-CUDA_VISIBLE_DEVICES=2 python train_drum.py \
+$ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
     --size 64 --batch 8 --sample_dir [sample_dir] \
     --checkpoint_dir [checkpoint_dir] \
     [mel-spectrogram dataset from the proprocessing]
@@ -120,7 +126,7 @@ The code comes heavily from the code below
 [melgan]: https://github.com/descriptinc/melgan-neurips
 
 ## Citation
-If you find this repo useful, please cite with the following information.
+If you find this repo useful, please kindly cite with the following information.
 ```
 @inproceedings{ allenloopgen, 
 	title={A Benchmarking Initiative for Audio-domain Music Generation using the {FreeSound Loop Dataset}},
