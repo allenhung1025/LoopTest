@@ -81,7 +81,7 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
     ``` bash
     $ ls --color=never generated_freesound_one_bar/100000/*.wav > freesound.csv
     $ python -m frechet_audio_distance.create_embeddings_main --input_files freesound.csv --stats freesound.stats
-    $ python -m frechet_audio_distance.compute_fad --background_stats ./looperman_2000.stats --test_stats freesound.stats
+    $ python -m frechet_audio_distance.compute_fad --background_stats ./evaluation/FAD/looperman_2000.stats --test_stats freesound.stats
     ```
 
 
