@@ -11,10 +11,13 @@
 $ conda env create -f environment.yml 
 ```
 ## Quick Start
+
+* Generate loops from one-bar looperman pretrained model
 ``` bash
 $ gdown --id 1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K -O looperman_one_bar_checkpoint.pt
 $ bash scripts/generate_looperman_one_bar.sh
 ``` 
+
 * Generate loops from four-bar looperman pretrained model
 ``` bash
 $ gdown --id 19rk3vx7XM4dultTF1tN4srCpdya7uxBV -O looperman_four_bar_checkpoint.pt
