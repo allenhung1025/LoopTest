@@ -11,16 +11,26 @@
 $ conda env create -f environment.yml 
 ```
 ## Quick Start
-* Generate loops from looperman pretrained model
+* Generate loops from one-bar looperman  pretrained model
 * If you want to "style-mix" the loop, you can add the argument `--style_mixing`.
-* There are two example scripts ([freesound](./generate_freesound.sh), [looperman](./generate_looperman.sh)) in the repo. 
+* There are two example scripts ([freesound](./generate_freesound.sh), [one-bar looperman](./generate_looperman.sh)) and [four-bar looperman](./generate_audio_looperman_four_bar.sh)in the repo. 
 ``` bash
-$ gdown --id 1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K -O looperman_checkpoint.pt
+$ gdown --id 1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K -O looperman_one_bar_checkpoint.pt
 $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
     --ckpt "looperman_checkpoint.pt" \
     --pics 2000 --data_path "./data/looperman" \
     --store_path "./generated_looperman_one_bar"
 ``` 
+* Generate loops from four-bar looperman pretrained model
+``` bash
+$ gdown --id 19rk3vx7XM4dultTF1tN4srCpdya7uxBV -O looperman_four_bar_checkpoint.pt
+$ CUDA_VISIBLE_DEVICES=2 python generate_looperman_four_bar.py \
+    --ckpt "looperman_four_bar_checkpoint.pt" \
+    --pics 2000 \
+    --data_path "./data/looperman_four_bar/" \
+    --store_path "./generated_audio_looperman_four_bar"
+```
+
 * Generate loops from freesound pretrained model
 ``` bash
 $ gdown --id 197DMCOASEMFBVi8GMahHfRwgJ0bhcUND -O freesound_checkpoint.pt 

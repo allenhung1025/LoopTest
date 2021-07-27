@@ -2,7 +2,7 @@ import argparse
 
 import torch
 from torchvision import utils
-from model_drum import Generator
+from model_drum_four_bar import Generator
 from tqdm import tqdm
 
 import sys
@@ -26,7 +26,7 @@ def read_yaml(fp):
 
 def generate(args, g_ema, device, mean_latent):
     epoch = args.ckpt.split('.')[0]
-
+    
     os.makedirs(f'{args.store_path}/{epoch}', exist_ok=True)
     os.makedirs(f'{args.store_path}/{epoch}/mel_80_320', exist_ok=True)
     feat_dim = 80
@@ -36,19 +36,19 @@ def generate(args, g_ema, device, mean_latent):
     std = torch.from_numpy(np.load(std_fp)).float().view(1, feat_dim, 1).to(device)
     vocoder_config_fp = './melgan/args.yml'
     vocoder_config = read_yaml(vocoder_config_fp)
-
+    
     n_mel_channels = vocoder_config.n_mel_channels
     ngf = vocoder_config.ngf
     n_residual_layers = vocoder_config.n_residual_layers
     sr=44100
-
+    
     vocoder = Generator_melgan(n_mel_channels, ngf, n_residual_layers).to(device)
     vocoder.eval()
-
+    
     vocoder_param_fp = os.path.join('./melgan', 'best_netG.pt')
     vocoder.load_state_dict(torch.load(vocoder_param_fp))
-
-
+    
+    
     with torch.no_grad():
         g_ema.eval()
         for i in tqdm(range(args.pics)):
@@ -58,7 +58,7 @@ def generate(args, g_ema, device, mean_latent):
                 [sample_z], truncation=args.truncation, truncation_latent=mean_latent
             )
             np.save(f'{args.store_path}/{epoch}/mel_80_320/{i}.npy', sample.squeeze().data.cpu().numpy())
-
+            
             utils.save_image(
                 sample,
                 f"{args.store_path}/{epoch}/{str(i).zfill(6)}.png",
@@ -72,10 +72,10 @@ def generate(args, g_ema, device, mean_latent):
             print('generate {}th wav file'.format(i))
 @torch.no_grad()
 def style_mixing(args, generator, step, mean_style, n_source, n_target, device, j):
-    index = 2
+    index = 5
     # create directory
-    os.makedirs(f'./generated_interpolation_one_bar_{index}/{j}', exist_ok=True)
-
+    os.makedirs(f'./generated_interpolation_{index}/{j}', exist_ok=True)
+    
     # load melgan vocoder
     feat_dim = 80
     mean_fp = f'{args.data_path}/mean.mel.npy'
@@ -84,22 +84,22 @@ def style_mixing(args, generator, step, mean_style, n_source, n_target, device, 
     std = torch.from_numpy(np.load(std_fp)).float().view(1, feat_dim, 1).to(device)
     vocoder_config_fp = './melgan/args.yml'
     vocoder_config = read_yaml(vocoder_config_fp)
-
+    
     n_mel_channels = vocoder_config.n_mel_channels
     ngf = vocoder_config.ngf
     n_residual_layers = vocoder_config.n_residual_layers
     sr=44100
-
+    
     vocoder = Generator_melgan(n_mel_channels, ngf, n_residual_layers).to(device)
     vocoder.eval()
-
+    
     vocoder_param_fp = os.path.join('./melgan', 'best_netG.pt')
     vocoder.load_state_dict(torch.load(vocoder_param_fp))
-
+    
     #generate spectrogram
     source_code = torch.randn(n_source, 512).to(device)
     target_code = torch.randn(n_target, 512).to(device)
-
+    
     shape = 4 * 2 ** step
     alpha = 1
 
@@ -111,37 +111,37 @@ def style_mixing(args, generator, step, mean_style, n_source, n_target, device, 
     target_image,_ = generator(
         [target_code], truncation=args.truncation, truncation_latent=mean_style
     )
-
+    
     images.append(source_image)
-
+    
     for i in range(n_source):
         de_norm = source_image[i] * std + mean
         audio_output = vocoder(de_norm)
-        sf.write(f'./generated_interpolation_one_bar_{index}/{j}/source_{i}.wav', audio_output.squeeze().detach().cpu().numpy(), sr)
-
+        sf.write(f'./generated_interpolation_{index}/{j}/source_{i}.wav', audio_output.squeeze().detach().cpu().numpy(), sr)
+    
     for i in range(n_target):
         de_norm = target_image[i] * std + mean
         audio_output = vocoder(de_norm)
-        sf.write(f'./generated_interpolation_one_bar_{index}/{j}/target_{i}.wav', audio_output.squeeze().detach().cpu().numpy(), sr)
-
+        sf.write(f'./generated_interpolation_{index}/{j}/target_{i}.wav', audio_output.squeeze().detach().cpu().numpy(), sr)
+    
     for i in range(n_target):
         image, _ = generator(
             [target_code[i].unsqueeze(0).repeat(n_source, 1), source_code],
             truncation_latent=mean_style,
             inject_index = index
         )
-
+        
         for k in range(n_source):
             de_norm = image[k] * std + mean
             audio_output = vocoder(de_norm)
-            sf.write(f'./generated_interpolation_one_bar_{index}/{j}/source_{k}_target_{i}.wav', audio_output.squeeze().detach().cpu().numpy(), sr)
-
+            sf.write(f'./generated_interpolation_{index}/{j}/source_{k}_target_{i}.wav', audio_output.squeeze().detach().cpu().numpy(), sr)
+        
         images.append(target_image[i].unsqueeze(0))
         images.append(image)
 
     images = torch.cat(images, 0)
     utils.save_image(
-            images, f'./generated_interpolation_one_bar_{index}/{j}/sample_mixing.png', nrow=args.n_col + 1, normalize=True, range=(-1, 1)
+            images, f'./generated_interpolation_{index}/{j}/sample_mixing.png', nrow=args.n_col + 1, normalize=True, range=(-1, 1)
     )
     return images
 if __name__ == "__main__":
@@ -190,6 +190,7 @@ if __name__ == "__main__":
         default=2,
         help="channel multiplier of the generator. config-f = 2, else = 1",
     )
+
     parser.add_argument("--style_mixing", action = "store_true")
     parser.add_argument('--n_row', type=int, default=3, help='number of rows of sample matrix')
     parser.add_argument('--n_col', type=int, default=5, help='number of columns of sample matrix')
@@ -211,10 +212,8 @@ if __name__ == "__main__":
     else:
         mean_latent = None
 
-    # Generate audio
     generate(args, g_ema, device, mean_latent)
-
-    #Style mixing
+    # Style mixing
     if args.style_mixing == True:
         step = 0
         for j in range(20):
