@@ -12,3 +12,6 @@ evaluation/NDB_JS/looper_2000.zip
 evaluation/user_study_analysis/
 evaluation/IS/freesound_styelgan2.pkl
 freesound_checkpoint.pt
+generated_audio_looperman_four_bar/
+looperman_four_bar_checkpoint.pt
+looperman_one_bar_checkpoint.pt
