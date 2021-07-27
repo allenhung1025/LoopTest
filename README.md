@@ -16,7 +16,7 @@ $ conda env create -f environment.yml
 ``` bash
 $ gdown --id 1GQpzWz9ycIm5wzkxLsVr-zN17GWD3_6K -O looperman_one_bar_checkpoint.pt
 $ bash scripts/generate_looperman_one_bar.sh
-``` 
+```
 
 * Generate loops from four-bar looperman pretrained model
 ``` bash
@@ -46,15 +46,16 @@ $ unzip freesound_mel_80_320.zip
 
 ``` bash
 $ CUDA_VISIBLE_DEVICES=2 python train_drum.py \
-    --size 64 --batch 8 --sample_dir [sample_dir] \
-    --checkpoint_dir [checkpoint_dir] \
-    [mel-spectrogram dataset from the proprocessing]
+    --size 64 --batch 8 --sample_dir freesound_sample_dir \
+    --checkpoint_dir freesound_checkpoint \
+    --iter 100000
+    mel_80_320
 ```
 
 ### Generate audio
 ```bash
 $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
-    --ckpt [freesound checkpoint] \
+    --ckpt freesound_checkpoint/100000.pt \
     --pics 2000 --data_path "./data/freesound" \
     --store_path "./generated_freesound_one_bar"
 ```
@@ -78,7 +79,7 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
 * FAD looperman ground truth [link](./evaluation/FAD/looperman_2000.stats), follow the official [doc](fad) to download the code and the evaluation.
 
     ``` bash
-    $ ls --color=never generated_freesound_one_bar/*.wav > freesound.csv
+    $ ls --color=never generated_freesound_one_bar/100000/*.wav > freesound.csv
     $ python -m frechet_audio_distance.create_embeddings_main --input_files freesound.csv --stats freesound.stats
     $ python -m frechet_audio_distance.compute_fad --background_stats ./looperman_2000.stats --test_stats freesound.stats
     ```

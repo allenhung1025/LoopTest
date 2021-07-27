@@ -15,3 +15,6 @@ freesound_checkpoint.pt
 generated_audio_looperman_four_bar/
 looperman_four_bar_checkpoint.pt
 looperman_one_bar_checkpoint.pt
+freesound_mel_80_320.zip
+mel_80_320/
+
