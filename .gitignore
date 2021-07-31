@@ -19,4 +19,5 @@ freesound_mel_80_320.zip
 mel_80_320/
 freesound_checkpoint/
 freesound_sample_dir/
+evaluation/IS/compute_is_score_one.sh
 
