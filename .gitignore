@@ -17,4 +17,6 @@ looperman_four_bar_checkpoint.pt
 looperman_one_bar_checkpoint.pt
 freesound_mel_80_320.zip
 mel_80_320/
+freesound_checkpoint/
+freesound_sample_dir/
 
