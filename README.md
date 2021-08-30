@@ -2,6 +2,8 @@
 [![GitHub](https://img.shields.io/github/license/allenhung1025/loop-generation?label=license)](./LICENSE.md)
 ![GitHub issues](https://img.shields.io/github/issues/allenhung1025/loop-generation)
 ![GitHub Repo stars](https://img.shields.io/github/stars/allenhung1025/loop-generation)
+<a href="https://replicate.ai/allenhung1025/looptest"><img src="https://img.shields.io/static/v1?label=Replicate&message=Demo and Docker Image&color=darkgreen" height=20></a>
+
 * This is the official repository of **A Benchmarking Initiative for Audio-domain Music Generation Using the FreeSound Loop Dataset** co-authored with [Paul Chen](https://paulyuchen.com/), [Arthur Yeh](http://yentung.com/) and my supervisor [Yi-Hsuan Yang](http://mac.citi.sinica.edu.tw/~yang/). The paper has been accepted by International Society for Music Information Retrieval Conference 2021.  [[Demo Page]](https://loopgen.github.io/), [[arxiv]](https://arxiv.org/pdf/2108.01576.pdf).
 * We not only provided pretrained model to generate loops on your own but also provided scripts for you to evaluate the generated loops.
 ## Environment
