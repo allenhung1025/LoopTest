@@ -74,7 +74,7 @@ $ CUDA_VISIBLE_DEVICES=2 python generate_audio.py \
     $ bash compute compute_is_score.sh 
     ```
 #### FAD
-* FAD looperman ground truth [link](./evaluation/FAD/looperman_2000.stats), follow the official [doc](fad) to install required packages. 
+* FAD looperman ground truth [link](./evaluation/FAD/looperman_2000.stats), follow the official [doc][fad] to install required packages. 
 
     ``` bash
     $ ls --color=never generated_freesound_one_bar/100000/*.wav > freesound.csv
